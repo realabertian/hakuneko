@@ -54,7 +54,7 @@ export default class KissAway extends FlatManga {
                 const response = await fetch(uri);
                 const data = await response.text();
                 const dom = new DOMParser().parseFromString(data, "text/html");
-                const nodes = [...dom.querySelectorAll('img.chapter-img')];
+                const nodes = [...dom.querySelectorAll('p > img.chapter-img')];
                 resolve(nodes.map(picture => picture.src).filter(image => !image.match(/olimposcan/)));
             });
         `;
